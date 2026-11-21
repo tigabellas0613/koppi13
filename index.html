@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Koppi13</title>
+  <link rel="icon" type="image/jpeg" href="assets/koppi13-logo.jpeg">
   <style>
     * {
       box-sizing: border-box;
@@ -28,16 +29,16 @@
     }
 
     .logo {
-      color: #382719;
-      font-size: 30px;
-      font-weight: 800;
-      letter-spacing: -1.5px;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      white-space: nowrap;
+      line-height: 0;
     }
 
-    .logo span {
-      color: #bd7844;
+    .logo img {
+      width: auto;
+      height: 72px;
+      object-fit: contain;
     }
 
     .main-nav {
@@ -408,8 +409,8 @@
     }
 
     @media (max-width: 380px) {
-      .logo {
-        font-size: 26px;
+      .logo img {
+        height: 58px;
       }
 
       .main-nav a {
@@ -445,7 +446,9 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#home" aria-label="Koppi13, beranda">koppi<span>13</span></a>
+    <a class="logo" href="#home" aria-label="Koppi13, beranda">
+      <img src="assets/koppi13-logo.jpeg" alt="Koppi13 - Coffee Roasters Est. 2026">
+    </a>
 
     <nav class="main-nav" aria-label="Navigasi utama">
       <a href="#home">Home</a>
