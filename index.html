@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koppi13</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #29251f;
+      background: #fffdf8;
+    }
+
+    .site-header {
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      background: #fffdf8;
+      border-bottom: 1px solid #eee9df;
+    }
+
+    .logo {
+      color: #382719;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #bd7844;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .main-nav a {
+      color: #51483e;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      color: #bd7844;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 19px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-button:hover {
+      background: #1fbd5b;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 90px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0;
+      color: #382719;
+      font-size: clamp(42px, 8vw, 88px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -3px;
+    }
+
+    .hero h1 span {
+      color: #bd7844;
+    }
+
+    .hero p {
+      margin: 22px 0 0;
+      color: #71675c;
+      font-size: clamp(16px, 2.2vw, 21px);
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 145px;
+      padding: 14px 22px;
+      border: 2px solid #bd7844;
+      border-radius: 999px;
+      color: #8d542c;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-button-primary {
+      background: #bd7844;
+      color: #fff;
+    }
+
+    .hero-button-primary:hover {
+      background: #a86435;
+      border-color: #a86435;
+    }
+
+    .hero-button-secondary:hover {
+      background: #bd7844;
+      color: #fff;
+    }
+
+    .menu-section {
+      padding: 72px 7% 88px;
+      background: #f7f2e9;
+      text-align: center;
+    }
+
+    .menu-section h2 {
+      margin: 0 0 36px;
+      color: #382719;
+      font-size: clamp(30px, 5vw, 44px);
+      letter-spacing: -1px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .menu-card {
+      overflow: hidden;
+      border-radius: 18px;
+      background: #fffdf8;
+      box-shadow: 0 8px 24px rgba(56, 39, 25, 0.08);
+    }
+
+    .menu-card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .menu-card-content {
+      padding: 22px;
+    }
+
+    .menu-card h3 {
+      margin: 0 0 8px;
+      color: #382719;
+      font-size: 20px;
+    }
+
+    .menu-card-price {
+      margin: 0 0 18px;
+      color: #8d542c;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .menu-order-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .menu-order-button:hover {
+      background: #1fbd5b;
+    }
+
+    .why-section {
+      padding: 72px 7% 88px;
+      text-align: center;
+    }
+
+    .why-section h2 {
+      margin: 0 0 36px;
+      color: #382719;
+      font-size: clamp(30px, 5vw, 44px);
+      letter-spacing: -1px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      padding: 30px 22px;
+      border: 1px solid #eee4d7;
+      border-radius: 18px;
+      background: #fffdf8;
+    }
+
+    .why-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: #f7f2e9;
+      color: #bd7844;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .why-card h3 {
+      margin: 0 0 10px;
+      color: #382719;
+      font-size: 20px;
+    }
+
+    .why-card p {
+      margin: 0;
+      color: #71675c;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .contact-footer {
+      padding: 72px 7% 24px;
+      background: #382719;
+      color: #fffdf8;
+      text-align: center;
+    }
+
+    .contact-footer h2 {
+      margin: 0 0 28px;
+      font-size: clamp(30px, 5vw, 44px);
+      letter-spacing: -1px;
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    .contact-details p {
+      margin: 0;
+      color: #e8dfd3;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .contact-details strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .contact-whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      padding: 16px 34px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact-whatsapp-button:hover {
+      background: #1fbd5b;
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      margin: 56px 0 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 253, 248, 0.2);
+      color: #cbbdaf;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .site-header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 18px 5%;
+      }
+
+      .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .main-nav a {
+        font-size: 14px;
+      }
+
+      .whatsapp-button {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 340px;
+        padding: 72px 5%;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .menu-section {
+        padding: 56px 5% 68px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+
+      .why-section {
+        padding: 56px 5% 68px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+
+      .contact-footer {
+        padding: 56px 5% 22px;
+      }
+
+      .contact-details {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .contact-whatsapp-button {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .copyright {
+        margin-top: 42px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo {
+        font-size: 26px;
+      }
+
+      .main-nav a {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        min-height: 320px;
+        padding: 64px 5%;
+      }
+
+      .hero h1 {
+        font-size: clamp(34px, 10.5vw, 50px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .hero-button {
+        min-width: 135px;
+        padding: 12px 16px;
+      }
+
+      .menu-card img {
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="Koppi13, beranda">koppi<span>13</span></a>
+
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <a
+      class="whatsapp-button"
+      href="https://wa.me/6285973615824?text=Halo%20Koppi13%2C%20saya%20ingin%20pesan."
+      target="_blank"
+      rel="noopener noreferrer"
+    >Pesan via WA</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <h1>Ngopi Enak,<br><span>Gak Harus Mahal.</span></h1>
+        <p>Kopi susu gula aren 7ribu, diracik fresh tiap hari.</p>
+        <div class="hero-actions">
+          <a class="hero-button hero-button-secondary" href="#menu">Lihat Menu</a>
+          <a
+            class="hero-button hero-button-primary"
+            href="https://wa.me/6285973615824?text=Halo%20Koppi13%2C%20saya%20ingin%20pesan."
+            target="_blank"
+            rel="noopener noreferrer"
+          >Pesan Sekarang</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <h2>Menu Best Seller</h2>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85"
+            alt="Kopi susu gula aren"
+          >
+          <div class="menu-card-content">
+            <h3>Kopi Susu Gula Aren</h3>
+            <p class="menu-card-price">Rp 7.000</p>
+            <a
+              class="menu-order-button"
+              href="https://wa.me/6285973615824?text=Halo%20Koppi13%2C%20saya%20ingin%20pesan%20Kopi%20Susu%20Gula%20Aren."
+              target="_blank"
+              rel="noopener noreferrer"
+            >Pesan</a>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85"
+            alt="Kopi hitam areng"
+          >
+          <div class="menu-card-content">
+            <h3>Kopi Hitam Areng</h3>
+            <p class="menu-card-price">Rp 3.000</p>
+            <a
+              class="menu-order-button"
+              href="https://wa.me/6285973615824?text=Halo%20Koppi13%2C%20saya%20ingin%20pesan%20Kopi%20Hitam%20Areng."
+              target="_blank"
+              rel="noopener noreferrer"
+            >Pesan</a>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=900&q=85"
+            alt="Kopi susu latte"
+          >
+          <div class="menu-card-content">
+            <h3>Kopi Susu Latte</h3>
+            <p class="menu-card-price">Rp 7.000</p>
+            <a
+              class="menu-order-button"
+              href="https://wa.me/6285973615824?text=Halo%20Koppi13%2C%20saya%20ingin%20pesan%20Kopi%20Susu%20Latte."
+              target="_blank"
+              rel="noopener noreferrer"
+            >Pesan</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="why-section" id="tentang">
+      <h2>Kenapa Kami</h2>
+      <div class="why-grid">
+        <article class="why-card">
+          <span class="why-number" aria-hidden="true">01</span>
+          <h3>Biji Kopi Fresh</h3>
+          <p>Diracik segar setiap hari agar kopi tetap nikmat di setiap tegukan.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-number" aria-hidden="true">02</span>
+          <h3>Harga Terjangkau</h3>
+          <p>Teman ngopi enak dengan harga yang ramah di kantong.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-number" aria-hidden="true">03</span>
+          <h3>Jam Buka Panjang</h3>
+          <p>Melayani pelanggan pukul 08.00–00.00 WIB.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact-footer" id="kontak">
+    <h2>Kontak &amp; Lokasi</h2>
+    <div class="contact-details">
+      <p>
+        <strong>Alamat</strong>
+        Gang Maashobirin RT 9/RW 12,<br>kos Ibu TITIN
+      </p>
+      <p>
+        <strong>Jam Buka</strong>
+        08.00–00.00 WIB
+      </p>
+      <p>
+        <strong>Kontak</strong>
+        Ema TITIN
+      </p>
+    </div>
+    <a
+      class="contact-whatsapp-button"
+      href="https://wa.me/6285973615824?text=Halo%20Koppi13%2C%20saya%20ingin%20pesan."
+      target="_blank"
+      rel="noopener noreferrer"
+    >Pesan via WhatsApp</a>
+    <p class="copyright">&copy; 2026 Koppi13</p>
+  </footer>
+</body>
+</html>
